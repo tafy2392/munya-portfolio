@@ -1,0 +1,15 @@
+baseURL = "https://tafy2392.github.io/munya-portfolio/"
+languageCode = "en-us"
+title = "Munya | Portfolio"
+# Enable default language support and keep the site lightweight.
+# Remove default taxonomies if you do not want category/tag pages.
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Portfolio and project showcase for Munya"
+  email = "hello@munya.dev"
+  phone = "+27 00 000 0000"
+  location = "Johannesburg, South Africa"
+  linkedin = "https://www.linkedin.com/in/yourname"
+  github = "https://github.com/tafy2392"
+  resume = "/resume.pdf"

@@ -1,0 +1,28 @@
+{{ define "main" }}
+<main class="page-shell">
+  <div class="container content-page">
+    <header class="page-header">
+      <p class="eyebrow">{{ .Section | title }}</p>
+      <h1>{{ .Title }}</h1>
+    </header>
+
+    {{ with .Content }}
+      <div class="page-content">
+        {{ . }}
+      </div>
+    {{ end }}
+
+    {{ if .Pages }}
+      <div class="card-grid">
+        {{ range .Pages.ByWeight }}
+          <article class="card">
+            <span class="card-tag">Project</span>
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+          </article>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</main>
+{{ end }}

@@ -1,0 +1,22 @@
+{{ define "main" }}
+<main class="page-shell">
+  <div class="container content-page">
+    <header class="page-header">
+      <p class="eyebrow">{{ .Section | title }}</p>
+      <h1>{{ .Title }}</h1>
+    </header>
+
+    <div class="page-content">
+      {{ .Content }}
+    </div>
+
+    {{ if .GetTerms "tags" }}
+      <div class="meta-row">
+        {{ range .GetTerms "tags" }}
+          <span class="tag">{{ .LinkTitle }}</span>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</main>
+{{ end }}

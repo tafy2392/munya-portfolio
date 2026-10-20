@@ -1,0 +1,67 @@
+{{ define "main" }}
+<main class="home-page">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Product-minded designer & developer</p>
+        <h1>{{ .Title }}</h1>
+        <p class="lead">I build polished digital experiences that connect strategy, storytelling, and thoughtful execution.</p>
+        <div class="cta-row">
+          <a class="button primary" href="{{ "/projects/" | relURL }}">View projects</a>
+          <a class="button secondary" href="{{ "/contact/" | relURL }}">Contact me</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <p class="mini-label">Currently</p>
+        <h2>Available for selected opportunities</h2>
+        <ul>
+          <li>Portfolio and personal brand sites</li>
+          <li>Product and marketing web experiences</li>
+          <li>UX-focused front-end implementation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split-grid">
+        <div class="content-block">
+          <h2>About my work</h2>
+          {{ .Content }}
+        </div>
+        <div class="highlight-panel">
+          <h3>Highlights</h3>
+          <ul>
+            <li>5+ years building digital experiences</li>
+            <li>Design + development workflow</li>
+            <li>Accessible, responsive interfaces</li>
+            <li>Clear communication and delivery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt-bg">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Selected work</p>
+        <h2>Recent projects</h2>
+      </div>
+
+      <div class="card-grid">
+        {{ range first 3 (where .Site.RegularPages "Section" "projects") }}
+          <article class="card">
+            <span class="card-tag">Project</span>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+            <a class="text-link" href="{{ .RelPermalink }}">Read more</a>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+</main>
+{{ end }}
